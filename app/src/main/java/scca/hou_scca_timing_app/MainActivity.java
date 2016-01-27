@@ -95,11 +95,20 @@ public class MainActivity extends AppCompatActivity {
 
                     Elements row2 = row.select("td");
                     body = body + "\n" + row2.text();
+
+                    Elements titleRow = row.select("td");
+                    if (titleRow.size() == 12 ){
+                        for ( Element cell : titleRow){
+                            Log.d("len", cell.text());
+                        }
+                        Log.d("class", titleRow.get(1).text());
+                        Log.d("len", String.valueOf(titleRow.size()));
+                    }
+
                 }
                 // Testing for cells
-                Elements titleRow = rows.select("td");
-                //Log.d("len", String.valueOf(titleRow.()));
-                Log.d("Cell", titleRow.get(0).text());
+
+                //Log.d("Cell", titleRow.get(0).text());
                 textView2.setText(body);
 
             } else {
