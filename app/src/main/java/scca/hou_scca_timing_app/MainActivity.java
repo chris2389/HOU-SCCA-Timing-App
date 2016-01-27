@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
     Document doc = null;
     TextView title = null;
     TextView textView2 = null;
+    String test1 = "";
+    String test2 = "";
+    String body = "";
     Elements rows;
-    Elements classes;
 
 
     /**
@@ -51,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.textView2);
 
         new DataGrabber().execute();
-
 
 
         //TextView htmlTextView = (TextView)findViewById(R.id.html_text);
@@ -83,24 +84,27 @@ public class MainActivity extends AppCompatActivity {
             if (doc != null) {
                 title.setText(doc.title().toString());
                 rows = doc.select("tr");
-                for (Element classes : rows) {
+                for (Element row : rows) {
 
-                   Elements tdElements = classes.select("th");
-                   String test1 = tdElements.text();
-                    Log.d("sdfsd", test1);
+                    String line = "-----------";
+                    body = body + "\n" + line;
 
-                   Elements row2 = classes.select("td");
-                   String test2 = row2.text();
-                   Log.d("Rows", test2);
+                    Elements tdElements = row.select("th");
+                    body = body + "\n" + tdElements.text();
 
 
-                    //textView2.setText(test1);
-                    //textView2.setText(test2);
+                    Elements row2 = row.select("td");
+                    body = body + "\n" + row2.text();
                 }
-            }else {
+                // Testing for cells
+                Elements titleRow = rows.select("td");
+                //Log.d("len", String.valueOf(titleRow.()));
+                Log.d("Cell", titleRow.get(0).text());
+                textView2.setText(body);
+
+            } else {
                 title.setText("FAILURE");
             }
-
 
 
             //Elements tdElements = doc.select("td");
