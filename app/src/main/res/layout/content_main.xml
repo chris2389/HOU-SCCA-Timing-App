@@ -17,23 +17,75 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/title">
-        <ScrollView
-            android:layout_width="wrap_content"
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/scrollView"
-            android:layout_below="@+id/title"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="43dp">
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_height="match_parent"
+            android:id="@+id/horizontalScrollView">
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:textSize="20dp"/>
-        </ScrollView>
-    </HorizontalScrollView>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/carclass"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:text="carclass" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:text="number" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:text="Name"/>
+                <TextView
+                    android:id="@+id/cartype"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:text="cartype"/>
+                <TextView
+                    android:id="@+id/carcolor"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/time1"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/time2"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/time3"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/time4"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/besttime"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:text="besttime"/>
 
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
 </RelativeLayout>

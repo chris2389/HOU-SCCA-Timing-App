@@ -22,6 +22,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +30,27 @@ public class MainActivity extends AppCompatActivity {
     Document doc = null;
     TextView title = null;
     TextView textView2 = null;
-    String test1 = "";
-    String test2 = "";
-    String body = "";
+    TextView textView3 = null;
+    TextView carclass = null;
+    TextView cartype = null;
+    TextView carcolor = null;
+    TextView time1 = null;
+    TextView time2 = null;
+    TextView time3 = null;
+    TextView time4 = null;
+    TextView besttime = null;
+
+    String carClass = "";
+    String driverName = "";
+    String carNumber = "";
+    String carType = "";
+    String carColor = "";
+    String Time1 = "";
+    String Time2= "";
+    String Time3= "";
+    String Time4= "";
+    String bestTime= "";
+    String driverResults = "";
     Elements rows;
 
 
@@ -51,12 +70,17 @@ public class MainActivity extends AppCompatActivity {
 
         title = (TextView) findViewById(R.id.title);
         textView2 = (TextView) findViewById(R.id.textView2);
+        textView3 = (TextView) findViewById(R.id.textView3);
+        carclass = (TextView) findViewById(R.id.carclass);
+        cartype = (TextView) findViewById(R.id.cartype);
+        carcolor = (TextView) findViewById(R.id.carcolor);
+        time1 = (TextView) findViewById(R.id.time1);
+        time2 = (TextView) findViewById(R.id.time2);
+        time3 = (TextView) findViewById(R.id.time3);
+        time4 = (TextView) findViewById(R.id.time4);
+        besttime = (TextView) findViewById(R.id.besttime);
 
         new DataGrabber().execute();
-
-
-        //TextView htmlTextView = (TextView)findViewById(R.id.html_text);
-        // htmlTextView.setText(Html.fromHtml(htmlText, null, null));
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -85,42 +109,59 @@ public class MainActivity extends AppCompatActivity {
                 title.setText(doc.title().toString());
                 rows = doc.select("tr");
                 for (Element row : rows) {
-
-                    String line = "-----------";
-                    body = body + "\n" + line;
-
                     Elements tdElements = row.select("th");
-                    body = body + "\n" + tdElements.text();
+                    if(tdElements.size() == 8){ //Class rows will have 8
+                        carClass = carClass + "\n" + tdElements.get(0).text();
+                        carclass.setText(carClass);
 
-
-                    Elements row2 = row.select("td");
-                    body = body + "\n" + row2.text();
-
-                    Elements titleRow = row.select("td");
-                    if (titleRow.size() == 12 ){
-                        for ( Element cell : titleRow){
-                            Log.d("len", cell.text());
-                        }
-                        Log.d("class", titleRow.get(1).text());
-                        Log.d("len", String.valueOf(titleRow.size()));
+                        carNumber = carNumber + "\n" ;
+                        driverName = driverName + "\n" ;
+                        carType = carType + "\n";
+                        carColor = carColor + "\n";
+                        Time1 = Time1 + "\n" ;
+                        Time2 = Time2 + "\n" ;
+                        Time3 = Time3 + "\n";
+                        Time4 = Time4+ "\n" ;
+                        bestTime = bestTime + "\n" ;
+                        carclass.setText(carClass);
+                        textView2.setText(carNumber);
+                        textView3.setText(driverName);
+                        cartype.setText(carType);
+                        //carcolor.setText(carColor);
+                        time1.setText(Time1);
+                        time2.setText(Time2);
+                        time3.setText(Time3);
+                        time4.setText(Time4);
+                        besttime.setText(bestTime);
                     }
+                    Elements driverRow = row.select("td");
+                    if (driverRow.size() == 12 ){ // The driver will always have 12 cells
+                        carNumber = carNumber + "\n" + driverRow.get(2).text();
+                        driverName = driverName + "\n" + driverRow.get(3).text();
+                        carType = carType + "\n" + driverRow.get(4).text();
+                        //carColor = carColor + "\n" + driverRow.get(5).text();
+                        Time1 = Time1 + "\n" + driverRow.get(6).text();
+                        Time2 = Time2 + "\n" + driverRow.get(7).text();
+                        Time3 = Time3 + "\n" + driverRow.get(8).text();
+                        Time4 = Time4+ "\n" + driverRow.get(9).text();
+                        bestTime = bestTime + "\n" + driverRow.get(10).text();
 
+                        carClass = carClass + "\n";
+                        carclass.setText(carClass);
+                        textView2.setText(carNumber);
+                        textView3.setText(driverName);
+                        cartype.setText(carType);
+                        //carcolor.setText(carColor);
+                        time1.setText(Time1);
+                        time2.setText(Time2);
+                        time3.setText(Time3);
+                        time4.setText(Time4);
+                        besttime.setText(bestTime);
+                    }
                 }
-                // Testing for cells
-
-                //Log.d("Cell", titleRow.get(0).text());
-                textView2.setText(body);
-
             } else {
                 title.setText("FAILURE");
             }
-
-
-            //Elements tdElements = doc.select("td");
-            //Log.d("tdElements", tdElements);
-            //String test1 = tdElements.get(30).text();
-            //textView2.setText(test1);
-
         }
     }
 

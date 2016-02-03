@@ -164,12 +164,12 @@
         "source": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png",
-        "source": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",
         "source": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png",
+        "source": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
