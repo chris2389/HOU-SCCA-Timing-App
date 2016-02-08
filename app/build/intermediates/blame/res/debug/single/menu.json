@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
-        "source": "/home/tacofresh/AndroidStudioProjects/HOU-SCCA-Timing-App/app/src/main/res/menu/menu_main.xml"
+        "merged": "C:\\home\\tacofresh\\AndroidStudioProjects\\HOU-SCCA-Timing-App\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\home\\tacofresh\\AndroidStudioProjects\\HOU-SCCA-Timing-App\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\dannyb\\Documents\\Android\\HOU-SCCA-Timing-App\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\Users\\dannyb\\Documents\\Android\\HOU-SCCA-Timing-App\\app\\src\\main\\res\\menu\\menu_main.xml"
     }
 ]
