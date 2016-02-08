@@ -5,26 +5,23 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ScrollView;
 import android.widget.TextView;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.jsoup.nodes.Element;
-
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.IOException;
+
+public class MainActivity extends AppCompatActivity
+{
 
     String url = "http://houscca.com/solo/results/results_live.htm";
     Document doc = null;
@@ -61,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private GoogleApiClient client;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -88,29 +86,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //New class for the Asynctask, where the data will be fetched in the background
-    private class DataGrabber extends AsyncTask<Void, Void, Void> {
+    private class DataGrabber extends AsyncTask<Void, Void, Void>
+    {
 
         @Override
-        protected Void doInBackground(Void... params) {
-            try {
+        protected Void doInBackground(Void... params)
+        {
+            try
+            {
                 // Connect to the web site
                 doc = Jsoup.connect(url).get();
 
-            } catch (IOException e) {
+            }
+
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
             return null;
         }
 
         @Override
-        protected void onPostExecute(Void result) {
+        protected void onPostExecute(Void result)
+        {
             //This is where we update the UI with the acquired data
-            if (doc != null) {
+            if (doc != null)
+            {
                 title.setText(doc.title().toString());
                 rows = doc.select("tr");
-                for (Element row : rows) {
+                for (Element row : rows)
+                {
                     Elements tdElements = row.select("th");
-                    if(tdElements.size() == 8){ //Class rows will have 8
+                    if(tdElements.size() == 8)
+                    { //Class rows will have 8
                         carClass = carClass + "\n" + tdElements.get(0).text();
                         carclass.setText(carClass);
 
@@ -134,8 +142,11 @@ public class MainActivity extends AppCompatActivity {
                         time4.setText(Time4);
                         besttime.setText(bestTime);
                     }
+
                     Elements driverRow = row.select("td");
-                    if (driverRow.size() == 12 ){ // The driver will always have 12 cells
+
+                    if (driverRow.size() == 12 )
+                    { // The driver will always have 12 cells
                         carNumber = carNumber + "\n" + driverRow.get(2).text();
                         driverName = driverName + "\n" + driverRow.get(3).text();
                         carType = carType + "\n" + driverRow.get(4).text();
@@ -159,7 +170,10 @@ public class MainActivity extends AppCompatActivity {
                         besttime.setText(bestTime);
                     }
                 }
-            } else {
+            }
+
+            else
+            {
                 title.setText("FAILURE");
             }
         }
@@ -167,21 +181,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
 
@@ -189,7 +206,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -209,7 +227,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStop() {
+    public void onStop()
+    {
         super.onStop();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.

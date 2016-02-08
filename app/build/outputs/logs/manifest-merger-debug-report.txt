@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\dannyb\Documents\Android\HOU-SCCA-Timing-App\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\dannyb\Documents\Android\HOU-SCCA-Timing-App\app\src\main\AndroidManifest.xml:2:1-27:12
 	xmlns:android
 		ADDED from C:\Users\dannyb\Documents\Android\HOU-SCCA-Timing-App\app\src\main\AndroidManifest.xml:2:11-69
 	package
